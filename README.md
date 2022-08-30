@@ -1,6 +1,6 @@
 ## Rapid dynamic speech imaging at 3 Tesla using combination of a custom vocal tract coil, variable density spirals and manifold regularization
 
-#### This code is based on the  spiral-STORM open source code developed first by A. H. Ahmed and colleagues ( https://github.com/ahaseebahmed/SpiralSToRM ). Code by A.H. Ahmed is included in this repository to be self contained. If users use this code, we would appreciate citing the below two references:
+#### This code is based on the  spiral-STORM open source code developed first by A. H. Ahmed and colleagues ( https://github.com/ahaseebahmed/SpiralSToRM ). Code by A.H. Ahmed is included in this repository to be self contained. In addition, it depends on the gpuNUFFT library (https://github.com/andyschwarzl/gpuNUFFT). If users use this code, we would appreciate citing the below two references:
 
 [1] R.Z. Rusho et al, "Rapid dynamic speech imaging at 3 Tesla using combination of a custom vocal tract coil, variable density spirals and manifold regularization" (submitted to MRM)
 
