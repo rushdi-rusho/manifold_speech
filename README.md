@@ -6,23 +6,30 @@ This code is based on the  spiral-STORM open source code developed first by A. H
 
 [2] A.H. Ahmed et al "Free-Breathing and Ungated Dynamic MRI Using Navigator-Less spiral SToRM," IEEE Trans. Med. Imaging, 2020 doi: 10.1109/tmi.2020.3008329
 
-### The framework of proposed pseudo-3D dynamic speech MRI
-<img src="https://github.com/rushdi-rusho/manifold_speech/blob/main/images/FF2.png" width=80% height=80%>
-Fig. 1: The proposed pseudo-3D variational manifold speech MRI reconstrruct scheme.     
+### The framework of proposed manifold speech MRI
+Variable Density Spirals (VDS)
+
+<img src="https://github.com/rushdi-rusho/manifold_speech/blob/main/images/FF2.png" width=30% height=60%>
+Fig. 1: Specifications of the 13 arm UDS (left column) and the 27 arm VDS (right column) design. Top row shows FOV v/s normalized k-space radius. Middle row shows the generated sampling trajectories, where the UDS trajectories had a readout duration of 2.69 ms, and VDS trajectories had a readout duration of 1.3 ms. Manifold regularized reconstructions using 13 arms/frame and 27 arms/frame respectively for UDS and VDS schemes are shown in the bottom row.      
   
   
-We propose to recover t
-<img src="https://github.com/rushdi-rusho/manifold_speech/blob/main/images/Slice2ofFig8.png" width=60% height=60%>
+  
+We propose to recover speech images using manifold regularization
 
-### Main advantages of our method
- 
+<img src="https://github.com/rushdi-rusho/manifold_speech/blob/main/images/FF3.png" width=60% height=40%>
 
+Fig. 2: : Dynamic images can be modeled as points on a smooth nonlinear manifold embedded in a high dimensional ambient space. Similar images are neigbors on this smooth manifold even if they occur distant in time. Dissimilar images will not be neighbors on this manifold
 
- 
+The graph Laplacian matrix from the manifold captures this neighborhood relationship:
+
+<img src="https://github.com/rushdi-rusho/manifold_speech/blob/main/images/FF4.png" width=60% height=60%>
+
+Fig. 3: Illustration of the graph Laplacian matrix for the speaking task of repeating the phrase “loo-lee-la-za-na-za”. (a) graph Laplacian matrix. (b) representative row (row # 74) of this matrix, where entries that are greater than 10% of the maximum (or minimum) value of that row are highlighted in red color, and superimposed on the remaining entries in blue color. Frame 74 has a raised tongue posture and all the similar frames is detected by red peaks. Similarly, (c) shows a representative row (row # 268) of this matrix, which corresponds to the 268th frame depicting a lowered tongue posture. These relationships are leveraged during reconstruction. 
+
 
 ### Output of speech MR reconstruction
-We reconstructed two different speech tasks from two different speakers at 18 ms temporal resolution:  
-
+ 
+<img src="https://github.com/rushdi-rusho/manifold_speech/blob/main/images/Slice2ofFig8.png" width=60% height=60%>
 
 ### Dataset
 An open source speech MR dataset is publishied:
