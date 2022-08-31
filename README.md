@@ -7,7 +7,7 @@ This code is based on the  spiral-STORM open source code developed first by A. H
 [2] A.H. Ahmed et al "Free-Breathing and Ungated Dynamic MRI Using Navigator-Less spiral SToRM," IEEE Trans. Med. Imaging, 2020 doi: 10.1109/tmi.2020.3008329
 
 ### The framework of proposed pseudo-3D dynamic speech MRI
-<img src="https://github.com/rushdi-rusho/manifold_speech/blob/main/images/figure2.tiff" width=80% height=80%>
+<img src="https://github.com/rushdi-rusho/manifold_speech/blob/main/images/FF2.png" width=80% height=80%>
 Fig. 1: The proposed pseudo-3D variational manifold speech MRI reconstrruct scheme.     
   
   
