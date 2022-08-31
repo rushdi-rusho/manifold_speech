@@ -6,6 +6,16 @@
 
 [2] A.H. Ahmed et al "Free-Breathing and Ungated Dynamic MRI Using Navigator-Less spiral SToRM," IEEE Trans. Med. Imaging, 2020 doi: 10.1109/tmi.2020.3008329
 
+### Dataset
+An open source speech MR dataset is publishied:
+
+### File description
+`manifold_speech_main.m` : This is the main file to run the manifold speech reconstruction.  
+ 
+### How to run the code
+
+Ensure that gpuNUFFT is properly installed in your machine. After that, specify the parametes and data path in the `manifold_speech_main.m` file and run it accordingly. Feel free to play with the reconstruction parameters e.g. number of arms fer frame, number of frames to keep,number of smallest basis etc.
+
 ###### Contact
 The code is meant for reproducible research. In case of any difficulty, please open an issue or directly email me at rushdizahid-rusho@uiowa.edu
 
