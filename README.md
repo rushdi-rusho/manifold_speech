@@ -26,10 +26,13 @@ Fig. 3: Illustration of the graph Laplacian matrix for the speaking task of repe
 Fig. 4: Qualitative comparison of reconstructions from the inverse non-uniform FFT, low rank, temporal finite difference, and the proposed manifold regularization schemes for the task of repeatation of the phrase “loo-lee-la-za-na-za”. The vertical yellow lines depicts the timing of the various consonant and vowel sounds.The proposed manifold regularized scheme showed improved reconstruction quality with better motion fidelity, as seen by sharper image time profiles.
 
 <img src="https://github.com/rushdi-rusho/manifold_speech/blob/main/images/Dataset6-NormalCount-sub1.gif">
-Fig. 5: Reconstruction of first 300 frames of the speech task of fluently counting numbers by subject 1 (played in loop, temporal resolution: 17.4 ms, single-sagittal slice orientation). First row: inverse NUFFT, Second row: low rank, Third row: temporal finite difference, Fourth row: manifold (proposed) reconstruction.
+Fig. 5: Reconstruction of first 300 frames (out of 900) of the speech task of fluently counting numbers by subject 1 (played in loop, temporal resolution: 17.4 ms, single-sagittal slice orientation). First row: inverse NUFFT, Second row: low rank, Third row: temporal finite difference, Fourth row: manifold (proposed) reconstruction.
+
+<img src="https://github.com/rushdi-rusho/manifold_speech/blob/main/images/Dataset3-looleelazanaza-sub2.gif">
+Fig. 6: Similar to Fig. 5, a three-slice reconstruction of the speech task of uttering repeated phrase "loo-lee-la-za-na-za" by subject 2 (temporal resolution: 52.2 ms).
 
 ### Dataset
-An open source speech MR dataset is publishied: <link>
+An open source speech MR dataset is publishied: https://doi.org/10.6084/m9.figshare.20816914.v2
 
 ### File description
 `manifold_speech_main.m` : This is the main file to run the manifold speech reconstruction.  
