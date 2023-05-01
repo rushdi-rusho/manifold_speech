@@ -1,35 +1,33 @@
-## Rapid dynamic speech imaging at 3 Tesla using combination of a custom vocal tract coil, variable density spirals and manifold regularization
+## Prospectively accelerated dynamic speech MRI at 3 Tesla using a self-navigated spiral based manifold regularized scheme
 ### The framework of proposed manifold speech MRI
-Variable Density Spirals (VDS)
-
-<img src="https://github.com/rushdi-rusho/manifold_speech/blob/main/images/FF2.png" width=25% height=35%>
-Fig. 1: Specifications of the 13 arm UDS (left column) and the 27 arm VDS (right column) design. Top row shows FOV v/s normalized k-space radius. Middle row shows the generated sampling trajectories, where the UDS trajectories had a readout duration of 2.69 ms, and VDS trajectories had a readout duration of 1.3 ms. Manifold regularized reconstructions using 13 arms/frame and 27 arms/frame respectively for UDS and VDS schemes are shown in the bottom row.      
-  
-  
-  
+ 
 We propose to recover speech images using manifold regularization
 
 <img src="https://github.com/rushdi-rusho/manifold_speech/blob/main/images/FF3.png" width=60% height=40%>
 
-Fig. 2: : Dynamic images can be modeled as points on a smooth nonlinear manifold embedded in a high dimensional ambient space. Similar images are neigbors on this smooth manifold even if they occur distant in time. Dissimilar images will not be neighbors on this manifold
+Fig. 1: : Dynamic images can be modeled as points on a smooth nonlinear manifold embedded in a high dimensional ambient space. Similar images are neigbors on this smooth manifold even if they occur distant in time. Dissimilar images will not be neighbors on this manifold
 
 The graph Laplacian matrix from the manifold captures this neighborhood relationship:
 
 <img src="https://github.com/rushdi-rusho/manifold_speech/blob/main/images/FF4.png" width=60% height=60%>
 
-Fig. 3: Illustration of the graph Laplacian matrix for the speaking task of repeating the phrase “loo-lee-la-za-na-za”. (a) graph Laplacian matrix. (b) representative row (row # 74) of this matrix, where entries that are greater than 10% of the maximum (or minimum) value of that row are highlighted in red color, and superimposed on the remaining entries in blue color. Frame 74 has a raised tongue posture and all the similar frames is detected by red peaks. Similarly, (c) shows a representative row (row # 268) of this matrix, which corresponds to the 268th frame depicting a lowered tongue posture. These relationships are leveraged during reconstruction. 
+Fig. 2: Illustration of the graph Laplacian matrix for the speaking task of repeating the phrase “loo-lee-la-za-na-za”. (a) graph Laplacian matrix. (b) representative row (row # 74) of this matrix, where entries that are greater than 10% of the maximum (or minimum) value of that row are highlighted in red color, and superimposed on the remaining entries in blue color. Frame 74 has a raised tongue posture and all the similar frames is detected by red peaks. Similarly, (c) shows a representative row (row # 268) of this matrix, which corresponds to the 268th frame depicting a lowered tongue posture. These relationships are leveraged during reconstruction. 
 
 
 ### Output of speech MR reconstruction
- 
-<img src="https://github.com/rushdi-rusho/manifold_speech/blob/main/images/Slice2ofFig8.png" width=60% height=60%>
-Fig. 4: Qualitative comparison of reconstructions from the inverse non-uniform FFT, low rank, temporal finite difference, and the proposed manifold regularization schemes for the task of repeatation of the phrase “loo-lee-la-za-na-za”. The vertical yellow lines depicts the timing of the various consonant and vowel sounds.The proposed manifold regularized scheme showed improved reconstruction quality with better motion fidelity, as seen by sharper image time profiles.
 
-<img src="https://github.com/rushdi-rusho/manifold_speech/blob/main/images/Dataset6-NormalCount-sub1.gif">
-Fig. 5: Reconstruction of first 300 frames (out of 900) of the speech task of fluently counting numbers by subject 1 (played in loop, temporal resolution: 17.4 ms, single-sagittal slice orientation). First row: inverse NUFFT, Second row: low rank, Third row: temporal finite difference, Fourth row: manifold (proposed) reconstruction.
 
-<img src="https://github.com/rushdi-rusho/manifold_speech/blob/main/images/Dataset3-looleelazanaza-sub2.gif">
-Fig. 6: Similar to Fig. 5, a three-slice reconstruction of the speech task of uttering repeated phrase "loo-lee-la-za-na-za" by subject 2 (temporal resolution: 52.2 ms).
+<img src="https://github.com/rushdi-rusho/manifold_speech/blob/main/images/Fig1_reterospective_phantom.png" width=60% height=60%>
+Fig. 3: Comparison of various algorithms on the retrospectively under-sampled data at different undersampling factors corresponding to using 2,3, and 4 spiral arms/frame, where the subject was counting numbers indefinitely. The top row show the ground truth fully sampled data. The mean square error (MSE) between the reconstruction and the ground truth were calculated in the yellow marked region of interest containing the moving vocal tract airway. Note, the low-rank reconstruction show pronounced unresolved aliasing in the 3 and 2 arms/frame setting. The view-sharing, XD-sort algorithms demonstrate substantial temporal blurring. TFD show classic temporal stair casing motion artifacts. In contrast, the proposed manifold regularized reconstruction provides improved spatial and temporal fidelity.
+   
+<img src="https://github.com/rushdi-rusho/manifold_speech/blob/main/images/slice2_loleelazanza_sub2.png" width=55% height=55%>
+Fig. 4: Qualitative comparison of various algorithms on the prospectively under-sampled data at undersampling factor of 3 spiral arms/frame where the subject was repeating the phrase “loo-lee-la-za-na-za”. Shown here is reconstuction of slice 2 of three-slice acquisition at 52.2 ms temporal resolution. The vertical yellow lines depicts the timing of the various consonant and vowel sounds. The proposed manifold regularized scheme showed improved reconstruction quality with better motion fidelity, as seen by sharper image time profiles.
+
+<img src="https://github.com/rushdi-rusho/manifold_speech/blob/main/images/Dataset6-NormalCount-sub2.gif">
+Fig. 5: Reconstruction of first 300 frames (out of 900) of the speech task of fluently counting numbers by subject 2 (played in loop, temporal resolution: 17.4 ms, single-sagittal slice orientation). First row: Low rank, Second row: View share, Third row: XD-sort (extra dimension based) Fourth row: Temporal finite difference, Fifth row: Manifold (proposed) reconstruction.
+
+<img src="https://github.com/rushdi-rusho/manifold_speech/blob/main/images/Dataset3-looleelazanaza-sub1.gif">
+Fig. 6: Similar to Fig. 5, a three-slice reconstruction of the speech task of uttering repeated phrase "loo-lee-la-za-na-za" by subject 2 (played in loop,temporal resolution: 52.2 ms). First row: Low rank, Second row: View share, Third row: XD-sort (extra dimension based) Fourth row: Temporal finite difference, Fifth row: Manifold (proposed) reconstruction.
 
 ### Dataset
 An open source speech MR dataset is publishied: https://doi.org/10.6084/m9.figshare.20816914.v2
